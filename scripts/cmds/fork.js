@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const REPO_OWNER = "Rafsuu";
 const REPO_NAME = "GOAT-BOT-UPDATED";
-const REPO_LINK = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+const REPO_LINK = `https://github.com/${rafsuu}/${RAFSAN-GOAT-BOT-2}`;
 const REPO_API = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`;
 
 module.exports = {

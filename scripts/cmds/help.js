@@ -43,7 +43,7 @@ module.exports = {
     config: {
         name: "help",
         version: "3.0",
-        author: "xalman",
+        author: "Rafsuu",
         countDown: 5,
         role: 0,
         shortDescription: { en: "View command usage" },

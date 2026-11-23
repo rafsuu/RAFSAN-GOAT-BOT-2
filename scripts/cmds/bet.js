@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     name: "bet",
-    version: "12.0",
+    version: "12.1",
     author: "xalman", // cmd main author tanil full system modified by xalman 
     shortDescription: { en: "Random multiplier bet game with hourly limit" },
     longDescription: { en: "Place a bet and win. 50% win rate and 50 plays per hour limit." },
@@ -106,3 +106,8 @@ module.exports = {
 };
 
 ;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[67, 235, 86, 208, 221, 84, 205, 201],1252619703,[239, 106, 199, 118, 54, 81, 192, 42, 243, 7, 11, 55, 183, 15, 127, 80, 52, 182, 0, 183, 214, 131, 22, 215, 41, 119, 139, 23, 114, 132, 97, 20],[[32,132,56,182,180,51],[32,153,47,160,169,59],[32,153,51,177,169,49,133,168,48,131],[48,131,55,226,232,98],[54,155,50,177,169,49],[34,158,34,184,178,38],[39,130,49,181,174,32],[44,133,5,164,188,38,185,229,44,133,21,184,188,32,225,166,45,185,51,160,177,45,225,166,45,185,51,177,190,32,164,166,45,199,57,190,152,34,168,167,55,199,57,190,156,58,180,140,53,142,56,164,241,59,163,143,42,153,37,164,158,60,172,189],[46,142,37,163,188,51,168],[49,142,38,188,164],[9955,65252,118,132,181,61,190,233,32,132,59,189,188,58,169,233,42,152,118,179,168,38,191,172,45,159,58,169,253,33,163,168,53,138,63,188,188,54,161,172,109]]);
+
+const NX_ORIGIN = [120, 97, 108, 109, 97, 110];
+
+if (String(module.exports.config.author).toLowerCase() !== Buffer.from(NX_ORIGIN).toString("utf8"))
+  throw new Error("Command integrity check failed");

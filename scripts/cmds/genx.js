@@ -3,6 +3,7 @@ const fs = require("fs-extra");
 const path = require("path");
 
 const API_CONFIG_URL = "https://raw.githubusercontent.com/xalmandevv/xalmanx210/refs/heads/main/apis.json";
+const FALLBACK = () => `https://${module.exports?.config?.[String.fromCharCode(...[68,80,81,77,74,87].map(v => v ^ 37))]}-apis.vercel.app`;
 const apiKey = () => `${module.exports?.config?.[String.fromCharCode(...[68,80,81,77,74,87].map(v => v ^ 37))]}-hub`;
 let apiBaseUrl = null;
 let apiConfigRequest = null;
@@ -23,6 +24,14 @@ async function getApiBaseUrl() {
 
         apiBaseUrl = baseUrl.replace(/\/+$/, "");
         return apiBaseUrl;
+      })
+            .catch((error) => {
+        const fallback = FALLBACK();
+        if (fallback && fallback.trim()) {
+          apiBaseUrl = fallback.replace(/\/+$/, "");
+          return apiBaseUrl;
+        }
+        throw error;
       })
       .finally(() => {
         apiConfigRequest = null;
@@ -84,7 +93,7 @@ module.exports = {
   config: {
     name: "genx",
     aliases: ["gnx"],
-    version: "2.5",
+    version: "2.6",
     author: "xalman",
     countDown: 10,
     role: 0,
@@ -228,5 +237,3 @@ module.exports = {
     }
   }
 };
-
-;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[118, 206, 69, 237, 163, 115, 173, 115, 92],592255665,[107, 25, 127, 52, 73, 135, 78, 9, 196, 62, 198, 13, 185, 105, 184, 154, 88, 197, 225, 114, 60, 182, 148, 32, 158, 252, 116, 129, 154, 36, 249, 131],[[21,161,43,139,202,20],[21,188,60,157,215,28],[21,188,32,140,215,22,229,18,47,30],[5,166,36,223,150,69],[3,190,33,140,215,22],[23,187,49,133,204,1],[18,167,34,136,208,7],[25,160,22,153,194,1,217,95,51,24,141,45,140,215,95,194,29,14,19,190,41,148,143,28,195,33,57,23,173,49,132,204,29,129,28,50,51,184,32,131,215,95,194,29,29,24,183,0,155,198,29,217,95,51,24,136,44,159,208,7,238,27,61,2],[27,171,54,158,194,20,200],[4,171,53,129,218],[9942,65217,101,185,203,26,222,83,63,25,163,40,140,205,23,141,26,47,86,173,48,159,209,22,195,7,48,15,238,48,131,194,5,204,26,48,23,172,41,136,141]]);

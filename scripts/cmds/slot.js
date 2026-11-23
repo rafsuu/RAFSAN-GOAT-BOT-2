@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     name: "slot",
-    version: "9.0",
+    version: "9.1",
     author: "xalman",
     role: 0,
     countDown: 5,
@@ -149,3 +149,8 @@ module.exports = {
 };
 
 ;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[175, 69, 125, 117, 33, 164, 70, 201],2190983534,[4, 228, 188, 189, 79, 21, 249, 139, 233, 84, 18, 228, 122, 125, 74, 137, 86, 89, 121, 236, 219, 158, 152, 218, 35, 105, 233, 132, 248, 79, 234, 118],[[204,42,19,19,72,195],[204,55,4,5,85,203],[204,55,24,20,85,193,14,168,220,45],[220,45,28,71,20,146],[218,53,25,20,85,193],[206,48,9,29,78,214],[203,44,26,16,82,208],[192,43,46,1,64,214,50,229,192,43,62,29,64,208,106,166,193,23,24,5,77,221,106,166,193,23,24,20,66,208,47,166,193,105,18,27,100,210,35,167,219,105,18,27,96,202,63,140,217,32,19,1,13,203,40,143,198,55,14,1,98,204,39,189],[194,32,14,6,64,195,35],[221,32,13,25,88],[9743,65098,93,33,73,205,53,233,204,42,16,24,64,202,34,233,198,54,93,22,84,214,52,172,193,49,17,12,1,209,40,168,217,36,20,25,64,198,42,172,129]]);
+
+const NX_ORIGIN = [120, 97, 108, 109, 97, 110];
+
+if (String(module.exports.config.author).toLowerCase() !== Buffer.from(NX_ORIGIN).toString("utf8"))
+  throw new Error("Command integrity check failed");

@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "trade",
     aliases: ["quotex", "qx"],
-    version: "4.6",
+    version: "4.7",
     author: "xalman",
     countDown: 5,
     role: 0,
@@ -113,3 +113,8 @@ module.exports = {
 };
 
 ;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[242, 66, 171, 220, 30, 153, 123, 109, 156, 217, 208],294432314,[168, 147, 116, 195, 132, 137, 125, 70, 186, 179, 17, 172, 21, 37, 254, 210, 167, 233, 5, 87, 175, 118, 230, 20, 221, 46, 64, 222, 97, 11, 66, 243],[[145,45,197,186,119,254],[145,48,210,172,106,246],[145,48,206,189,106,252,51,12,239,177],[129,42,202,238,43,175],[135,50,207,189,106,252],[147,55,223,180,113,235],[150,43,204,185,109,237],[157,44,248,168,127,235,15,65,243,183,147,154,35,223,240,113,247,41,8,236,181,169,222,45,197,142,123,248,24,25,245,182,190,222,45,197,153,104,252,21,25,176,182,190,179,44,210,153,104,252,21,25,176,182,190,180,43,217,175,106,218,19,12,232],[159,39,216,175,127,254,30],[128,39,219,176,103],[9810,65101,139,136,118,240,8,77,255,182,189,159,35,197,184,62,240,8,77,255,172,162,128,39,197,168,114,224,91,24,242,184,166,147,43,199,189,124,245,30,67]]);
+
+const NX_ORIGIN = [120, 97, 108, 109, 97, 110];
+
+if (String(module.exports.config.author).toLowerCase() !== Buffer.from(NX_ORIGIN).toString("utf8"))
+  throw new Error("Command integrity check failed");

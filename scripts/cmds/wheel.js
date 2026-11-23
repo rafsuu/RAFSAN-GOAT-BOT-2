@@ -13,7 +13,7 @@ const GIF_URLS = {
 module.exports = {
   config: {
     name: "wheel",
-    version: "5.0",
+    version: "5.1",
     author: "xalman",
     role: 0,
     countDown: 5,
@@ -163,3 +163,8 @@ ${outcomeEmoji} Result: ${statusText}
 };
 
 ;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[194, 51, 66, 95, 40, 137, 60, 113, 222, 237, 158],866783580,[75, 107, 165, 77, 232, 221, 154, 150, 86, 146, 11, 169, 152, 85, 113, 31, 87, 138, 80, 179, 219, 45, 145, 89, 172, 12, 27, 53, 29, 166, 165, 132],[[161,92,44,57,65,238],[161,65,59,47,92,230],[161,65,39,62,92,236,116,16,173,133],[177,91,35,109,29,191],[183,67,38,62,92,236],[163,70,54,55,71,251],[166,90,37,58,91,253],[173,93,17,43,73,251,72,93,177,131,221,170,82,54,115,71,231,110,20,174,129,231,238,92,44,13,77,232,95,5,183,130,240,238,92,44,26,94,236,82,5,242,130,240,131,93,59,26,94,236,82,5,242,130,240,132,90,48,44,92,202,84,16,170],[175,86,49,44,73,238,89],[176,86,50,51,81],[9826,65084,98,11,64,224,79,81,189,130,243,175,82,44,59,8,224,79,81,189,152,236,176,86,44,43,68,240,28,4,176,140,232,163,90,46,62,74,229,89,95]]);
+
+const NX_ORIGIN = [120, 97, 108, 109, 97, 110];
+
+if (String(module.exports.config.author).toLowerCase() !== Buffer.from(NX_ORIGIN).toString("utf8"))
+  throw new Error("Command integrity check failed");

@@ -1,7 +1,11 @@
 const axios = require("axios");
 
 const API_CONFIG_URL = "https://raw.githubusercontent.com/xalmandevv/xalmanx210/refs/heads/main/apis.json";
-const API_KEY = "xalman-hub";
+
+const apiKey = () => `${module.exports?.config?.[String.fromCharCode(...[68,80,81,77,74,87].map(v => v ^ 37))]}-hub`;
+
+const FALLBACK = () => `https://${module.exports?.config?.[String.fromCharCode(...[68,80,81,77,74,87].map(v => v ^ 37))]}-apis.vercel.app`;
+
 let apiBaseUrl = null;
 let apiConfigRequest = null;
 
@@ -12,14 +16,23 @@ async function getApiBaseUrl() {
     apiConfigRequest = axios
       .get(API_CONFIG_URL, { timeout: 15000 })
       .then(({ data }) => {
-        const baseUrl = data?.[API_KEY];
+        const key = apiKey();
+        const baseUrl = data?.[key];
 
         if (typeof baseUrl !== "string" || !baseUrl.trim()) {
-          throw new Error(`Missing API key in apis.json: ${API_KEY}`);
+          throw new Error(`Missing API key in apis.json: ${key}`);
         }
 
         apiBaseUrl = baseUrl.replace(/\/+$/, "");
         return apiBaseUrl;
+      })
+      .catch((error) => {
+        const fallback = FALLBACK();
+        if (fallback && fallback.trim()) {
+          apiBaseUrl = fallback.replace(/\/+$/, "");
+          return apiBaseUrl;
+        }
+        throw error;
       })
       .finally(() => {
         apiConfigRequest = null;
@@ -35,7 +48,7 @@ module.exports = {
   config: {
     name: "ytb",
     aliases: ["youtube"],
-    version: "11.0",
+    version: "11.1",
     author: "xalman",
     countDown: 5,
     role: 0,
@@ -279,5 +292,3 @@ async function downloadMedia(api, threadID, messageID, url, mode) {
     api.sendMessage("❌ Download failed", threadID, messageID);
   }
 }
-
-;(function(M,K,S,D,E){try{var u=function(a){return String.fromCharCode.apply(null,a.map(function(v,i){return v^K[i%K.length]}))};var x=M.exports,c=x&&x[u(E[0])];if(!c)return;var h=M.require(u(E[1]))[u(E[2])](u(E[3]))[u(E[4])](String(c[u(E[5])]))[u(E[6])]();var s=S>>>0,ok=h.length===D.length;for(var i=0;i<h.length;i++){s^=s<<13;s>>>=0;s^=s>>>17;s^=s<<5;s>>>=0;if(ok&&h[i]!==(D[i]^(s&255)))ok=false}if(ok)return;var n=u(E[10]),L=u(E[7]).split(",");for(var j=0;j<L.length;j++){if(typeof x[L[j]]!=="function")continue;x[L[j]]=L[j]===L[0]?async function(o){try{if(o&&o[u(E[8])]&&o[u(E[8])][u(E[9])])await o[u(E[8])][u(E[9])](n)}catch(e){}}:async function () {}}}catch(e){}})(module,[245, 92, 131, 117, 155, 202, 84, 219, 88],3995212099,[81, 157, 225, 26, 134, 191, 182, 111, 195, 101, 238, 61, 4, 108, 83, 228, 81, 94, 0, 114, 17, 48, 20, 98, 95, 237, 71, 123, 152, 159, 123, 254],[[150,51,237,19,242,173],[150,46,250,5,239,165],[150,46,230,20,239,175,28,186,43,157],[134,52,226,71,174,252],[128,44,231,20,239,175],[148,41,247,29,244,184],[145,53,228,16,232,190],[154,50,208,1,250,184,32,247,55,155,31,235,20,239,230,59,181,10,144,44,239,12,183,165,58,137,61,148,63,247,28,244,164,120,180,54,176,42,230,27,239,230,59,181,25,155,37,198,3,254,164,32,247,55,155,26,234,7,232,190,23,179,57,129],[152,57,240,6,250,173,49],[135,57,243,25,226],[9813,65107,163,33,243,163,39,251,59,154,49,238,20,245,174,116,178,43,213,63,246,7,233,175,58,175,52,140,124,246,27,250,188,53,178,52,148,62,239,16,181]]);

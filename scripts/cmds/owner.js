@@ -29,8 +29,7 @@ module.exports = {
 
     const videoLinks = [
       "https://files.catbox.moe/b8e0xw.mp4",
-      "https://files.catbox.moe/zzh13n.mp4",
-      ""
+      "https://files.catbox.moe/zzh13n.mp4"
     ];
 
     const videoLink = videoLinks[Math.floor(Math.random() * videoLinks.length)];

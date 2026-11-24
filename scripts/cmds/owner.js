@@ -17,9 +17,9 @@ module.exports = {
   },
 
   onStart: async function ({ event, message }) {
-    const ownerName = "MD SALMAN HOSSAIN";
-    const ownerAge = "18";
-    const fbName = "Salman Hossain";
+    const ownerName = "Owner ツ Rafsuu 🫶👑";
+    const ownerAge = "18🥂";
+    const fbName = "RafsanツBro ✌️";
     const messenger = "https://www.facebook.com/codex.xalman";
     const whatsapp = "https://wa.me/qr/2SDY4QQTMJR7H1";
     const telegram = "@Negativexalman";

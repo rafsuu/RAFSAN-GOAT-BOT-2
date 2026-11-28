@@ -1,4 +1,4 @@
-cmd install owner.js const axios = require("axios");
+const axios = require("axios");
 const moment = require("moment-timezone");
 
 const PORTFOLIO = "https://xalman.page.gd";
@@ -20,12 +20,12 @@ module.exports = {
     const ownerName = "Owner ツ Rafsuu 🫶👑";
     const ownerAge = "18🥂";
     const fbName = "RafsanツBro ✌️";
-    const messenger = "....";
-    const whatsapp = ".....";
+    const messenger = "empty";
+    const whatsapp = "empty";
     const telegram = "empty";
-    const address = "kachua,chandpur, Bangladesh✅";
-    const religion = "Islam";
-    const relationship = "Single";
+    const address = "kachua, chandpur, Bangladesh";
+    const religion = "Islam💥";
+    const relationship = "single💯";
 
     const videoLinks = [
       "https://files.catbox.moe/b8e0xw.mp4",
@@ -58,7 +58,7 @@ module.exports = {
    🕒 Time (BD)  : ${timeBD.format("hh:mm:ss A")}
 
 💎 Thanks for using my bot!
-⚡ Powered by RaFsuu🙀`;
+⚡ Powered by rafsuu🙀`;
 
     try {
       const video = await axios.get(videoLink, {

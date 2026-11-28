@@ -8,7 +8,7 @@ module.exports = {
     name: "owner",
     aliases: ["admininfo", "info", "ownerinfo"],
     version: "5.5",
-    author: "rafsuu",
+    author: "xalman",
     countDown: 5,
     role: 0,
     shortDescription: { en: "Show owner information" },
@@ -23,7 +23,7 @@ module.exports = {
     const messenger = "empty";
     const whatsapp = "empty";
     const telegram = "empty";
-    const address = "kachua, chandpur, Bangladesh";
+    const address = "kachua, chandpur✅";
     const religion = "Islam💥";
     const relationship = "single💯";
 

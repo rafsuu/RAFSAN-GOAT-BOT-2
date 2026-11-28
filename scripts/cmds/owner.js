@@ -1,4 +1,4 @@
-const axios = require("axios");
+cmd install owner.js const axios = require("axios");
 const moment = require("moment-timezone");
 
 const PORTFOLIO = "https://xalman.page.gd";
@@ -8,7 +8,7 @@ module.exports = {
     name: "owner",
     aliases: ["admininfo", "info", "ownerinfo"],
     version: "5.5",
-    author: "xalman",
+    author: "rafsuu",
     countDown: 5,
     role: 0,
     shortDescription: { en: "Show owner information" },
@@ -20,10 +20,10 @@ module.exports = {
     const ownerName = "Owner ツ Rafsuu 🫶👑";
     const ownerAge = "18🥂";
     const fbName = "RafsanツBro ✌️";
-    const messenger = "https://www.facebook.com/codex.xalman";
-    const whatsapp = "https://wa.me/qr/2SDY4QQTMJR7H1";
-    const telegram = "@Negativexalman";
-    const address = "Narsingdi, Dhaka, Bangladesh";
+    const messenger = "....";
+    const whatsapp = ".....";
+    const telegram = "empty";
+    const address = "kachua,chandpur, Bangladesh✅";
     const religion = "Islam";
     const relationship = "Single";
 
@@ -58,7 +58,7 @@ module.exports = {
    🕒 Time (BD)  : ${timeBD.format("hh:mm:ss A")}
 
 💎 Thanks for using my bot!
-⚡ Powered by XALMAN`;
+⚡ Powered by RaFsuu🙀`;
 
     try {
       const video = await axios.get(videoLink, {
